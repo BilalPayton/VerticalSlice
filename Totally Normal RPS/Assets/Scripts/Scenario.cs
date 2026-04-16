@@ -6,9 +6,8 @@ using UnityEngine;
 public class Scenario : MonoBehaviour
 {
 
-    private float _timer = 5.0f;
-    [SerializeField] private TextMeshPro _timerText;
-    [SerializeField] private Sprite _image;
+    protected float _timer = 2.0f;
+    [SerializeField] protected TextMeshPro _timerText;
 
     void Start()
     {
@@ -16,20 +15,14 @@ public class Scenario : MonoBehaviour
     }
 
 
-    void Update()
+    protected virtual void Update()
     {
         _timer -= Time.deltaTime;
         _timerText.text = "" + _timer;
 
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            Destroy(this.gameObject);
-            Destroy(_timerText);
-        }
-
         if (_timer <= 0.0f)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
