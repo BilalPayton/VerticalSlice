@@ -14,10 +14,10 @@ public class Rock : Scenario
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             this.gameObject.SetActive(false);
-            _timer = 2.0f;
+            _timer = 3.0f;
         }
     }
 }
