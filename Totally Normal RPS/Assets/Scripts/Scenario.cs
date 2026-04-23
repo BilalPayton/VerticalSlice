@@ -8,6 +8,7 @@ public class Scenario : MonoBehaviour
 
     protected float _timer = 2.0f;
     [SerializeField] protected TextMeshPro _timerText;
+    [SerializeField] protected GameObject _gameOverUI;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class Scenario : MonoBehaviour
         if (_timer <= 0.0f)
         {
             this.gameObject.SetActive(false);
+            _gameOverUI.SetActive(true);
         }
     }
 

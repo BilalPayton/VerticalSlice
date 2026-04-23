@@ -9,12 +9,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<GameObject> _scenarioList;
     [SerializeField] private List<GameObject> _scenariosToBeAdded;
     [SerializeField] private GameObject _timerText;
+    [SerializeField] private GameObject _gameOverUI;
     private float _timeTillNextScenario;
 
     private int scenarioIndex;
 
     private int _scenarioListSize;
     private int _scenariosToBeAddedSize;
+    private int _playerScore;
     private int _points;
 
     void Start()
@@ -27,32 +29,37 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        _scenarioListSize = _scenarioList.Count;
-        _scenariosToBeAddedSize = _scenariosToBeAdded.Count;
-
-        if (_timeTillNextScenario <= 0.0f)
+        if (_gameOverUI.activeSelf == false)
         {
-            scenarioIndex = Random.Range(0, _scenarioListSize);
+            _scenarioListSize = _scenarioList.Count;
+            _scenariosToBeAddedSize = _scenariosToBeAdded.Count;
 
-            _scenarioList.ElementAt(scenarioIndex).gameObject.SetActive(true);
-            _timerText.SetActive(true);
+            if (_timeTillNextScenario <= 0.0f)
+            {
+                scenarioIndex = Random.Range(0, _scenarioListSize);
 
-            _timeTillNextScenario = 2.0f;
+                _scenarioList.ElementAt(scenarioIndex).gameObject.SetActive(true);
+                _timerText.SetActive(true);
+
+                _timeTillNextScenario = 2.0f;
 
 
+            }
+
+            if (_scenarioList.ElementAt(scenarioIndex).gameObject.activeSelf == false)
+            {
+                _timerText.SetActive(false);
+                _timeTillNextScenario -= Time.deltaTime;
+            }
+
+            if (_points == 8 && _scenariosToBeAddedSize != 0)
+            {
+                _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
+                _scenariosToBeAdded.RemoveAt(0);
+            }
         }
-
-        if (_scenarioList.ElementAt(scenarioIndex).gameObject.activeSelf == false)
-        {
-            _timerText.SetActive(false);
-            _timeTillNextScenario -= Time.deltaTime;
-        }
-
-        if (_points == 8 && _scenariosToBeAddedSize != 0)
-        {
-            _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
-            _scenariosToBeAdded.RemoveAt(0);
-        }
+        
+        
     }
 
 }
