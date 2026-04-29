@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private int _scenariosToBeAddedSize;
     private int _playerScore;
     private int _points;
+    private bool _addPoints;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class GameController : MonoBehaviour
                 _timerText.SetActive(true);
 
                 _timeTillNextScenario = 2.0f;
-
+                _addPoints = false;
 
             }
 
@@ -50,16 +51,26 @@ public class GameController : MonoBehaviour
             {
                 _timerText.SetActive(false);
                 _timeTillNextScenario -= Time.deltaTime;
+
+                if (!_addPoints)
+                {
+                    _points++;
+                    _addPoints = true;
+                }
             }
 
-            if (_points == 8 && _scenariosToBeAddedSize != 0)
+            if (_points == 6 && _scenariosToBeAddedSize != 0)
             {
                 _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
                 _scenariosToBeAdded.RemoveAt(0);
+                _points = 0;
+                _timeTillNextScenario = 10.0f;
+                _timeTillNextScenario -= Time.deltaTime;
+                _timerText.SetActive(true);
             }
         }
-        
-        
+
+        Debug.Log(_points);
     }
 
 }
