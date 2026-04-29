@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &118207324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerText: {fileID: 1896462026}
   _gameOverUI: {fileID: 865086478}
+  _anim: {fileID: 118207329}
 --- !u!212 &118207325
 SpriteRenderer:
   m_ObjectHideFlags: 0
