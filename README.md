@@ -20,7 +20,7 @@ Unity systems in my game behind is relies on the Animation/Animator system by ch
 variable to transition between states.
 
 Updated Break-Down:
-
+<img width="1523" height="1149" alt="Screenshot 2026-04-28 233421" src="https://github.com/user-attachments/assets/54922c41-409d-48eb-b491-c7f83043a36b" />
 
 ## Milestone 2 Devlog
 Milestone 2 Devlog goes here.
