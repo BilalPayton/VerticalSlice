@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
                 _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
                 _scenariosToBeAdded.RemoveAt(0);
                 _points = 0;
-                _timeTillNextScenario = 10.0f;
+                _timeTillNextScenario = 4.0f;
                 _timeTillNextScenario -= Time.deltaTime;
                 _timerText.SetActive(true);
             }
