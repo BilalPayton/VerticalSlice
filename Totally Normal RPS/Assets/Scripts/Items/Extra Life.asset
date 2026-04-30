@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9b42efec5ddee47ac8736e8867fad0, type: 3}
   m_Name: Extra Life
   m_EditorClassIdentifier: 
-  _name: 
-  _description: 
+  _name: Extra Life
+  _description: Allows you to fail once without ending the game
   _icon: {fileID: 0}
