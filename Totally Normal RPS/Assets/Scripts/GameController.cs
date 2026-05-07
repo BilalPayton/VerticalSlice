@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private List<GameObject> _scenarioList;
     [SerializeField] private List<GameObject> _scenariosToBeAdded;
+    [SerializeField] private List<GameObject> _newScenarioRules;
     [SerializeField] private GameObject _timerText;
     [SerializeField] private GameObject _gameOverUI;
     private float _timeTillNextScenario;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Scenario : MonoBehaviour
 {
-
+    protected KeyCode _requiredKey;
     protected float _timer = 2.0f;
     [SerializeField] protected TextMeshPro _timerText;
     [SerializeField] protected GameObject _gameOverUI;
@@ -21,7 +21,7 @@ public class Scenario : MonoBehaviour
         _timer -= Time.deltaTime;
         _timerText.text = "" + _timer;
 
-        if (_timer <= 0.0f)
+        if (_timer <= 0.0f || (Input.GetKeyDown(_requiredKey) != true && Input.anyKeyDown))
         {
             this.gameObject.SetActive(false);
             _gameOverUI.SetActive(true);

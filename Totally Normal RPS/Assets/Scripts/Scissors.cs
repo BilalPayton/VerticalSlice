@@ -7,14 +7,14 @@ public class Scissors : Scenario
     
     void Start()
     {
-        
+        _requiredKey = KeyCode.R;
     }
 
     
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(_requiredKey))
         {
             this.gameObject.SetActive(false);
             _timer = 3.0f;
