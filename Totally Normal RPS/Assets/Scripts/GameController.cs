@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<GameObject> _newScenarioRules;
     [SerializeField] private GameObject _timerText;
     [SerializeField] private GameObject _gameOverUI;
+    [SerializeField] private GameObject _retryButton;
     private float _timeTillNextScenario;
 
     private int scenarioIndex;
@@ -33,6 +34,7 @@ public class GameController : MonoBehaviour
     {
         if (_gameOverUI.activeSelf == false)
         {
+            _retryButton.SetActive(false);
             _scenarioListSize = _scenarioList.Count;
             _scenariosToBeAddedSize = _scenariosToBeAdded.Count;
 
@@ -71,7 +73,12 @@ public class GameController : MonoBehaviour
             }
         }
 
-        Debug.Log(_points);
+        else
+        {
+            _retryButton.SetActive(true);
+        }
+
+            Debug.Log(_points);
     }
 
 }
