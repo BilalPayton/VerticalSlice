@@ -26,6 +26,12 @@ public class Scenario : MonoBehaviour
             this.gameObject.SetActive(false);
             _gameOverUI.SetActive(true);
         }
+
+        if (Input.GetKeyDown(_requiredKey))
+        {
+            this.gameObject.SetActive(false);
+            _timer = 3.0f;
+        }
     }
 
 }

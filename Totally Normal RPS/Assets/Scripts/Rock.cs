@@ -10,14 +10,4 @@ public class Rock : Scenario
         _requiredKey = KeyCode.P;
     }
 
-    
-    protected override void Update()
-    {
-        base.Update();
-        if (Input.GetKeyDown(_requiredKey))
-        {
-            this.gameObject.SetActive(false);
-            _timer = 3.0f;
-        }
-    }
 }

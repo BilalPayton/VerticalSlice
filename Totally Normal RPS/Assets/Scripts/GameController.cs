@@ -15,9 +15,6 @@ public class GameController : MonoBehaviour
     private float _timeTillNextScenario;
 
     private int scenarioIndex;
-
-    private int _scenarioListSize;
-    private int _scenariosToBeAddedSize;
     private int _playerScore;
     private int _points;
     private bool _addPoints;
@@ -25,8 +22,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _timeTillNextScenario = 0.0f;
-        _scenarioListSize = _scenarioList.Count;
-        _scenariosToBeAddedSize = _scenariosToBeAdded.Count;
     }
 
 
@@ -35,12 +30,10 @@ public class GameController : MonoBehaviour
         if (_gameOverUI.activeSelf == false)
         {
             _retryButton.SetActive(false);
-            _scenarioListSize = _scenarioList.Count;
-            _scenariosToBeAddedSize = _scenariosToBeAdded.Count;
 
             if (_timeTillNextScenario <= 0.0f)
             {
-                scenarioIndex = Random.Range(0, _scenarioListSize);
+                scenarioIndex = Random.Range(0, _scenarioList.Count);
 
                 _scenarioList.ElementAt(scenarioIndex).gameObject.SetActive(true);
                 _timerText.SetActive(true);
@@ -62,14 +55,20 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            if (_points == 6 && _scenariosToBeAddedSize != 0)
+            if (_points == 6 && _scenariosToBeAdded.Count != 0)
             {
                 _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
                 _scenariosToBeAdded.RemoveAt(0);
                 _points = 0;
-                _timeTillNextScenario = 4.0f;
+                _timeTillNextScenario = 7.0f;
                 _timeTillNextScenario -= Time.deltaTime;
                 _timerText.SetActive(true);
+
+                if (_newScenarioRules.Count != 0)
+                {
+                    _newScenarioRules.ElementAt(0).gameObject.SetActive(true);
+                    _newScenarioRules.RemoveAt(0);
+                }
             }
         }
 
