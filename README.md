@@ -23,7 +23,32 @@ Updated Break-Down:
 <img width="1523" height="1149" alt="Screenshot 2026-04-28 233421" src="https://github.com/user-attachments/assets/54922c41-409d-48eb-b491-c7f83043a36b" />
 
 ## Milestone 2 Devlog
-Milestone 2 Devlog goes here.
+1. Animator Feature for scenarios steps:
+	- 1. Create Animations
+		1. Give chosen GameObject an Animator Component
+		2. Make the Animations in the Animation tab
+	- 2. Create + Control Animation transitions
+		1. Create parameters necessary to control Animation transitions
+		2. Create transition arrows to connect each Animation.
+		3. Create code that edits/utilizes parameters to cause Animation transitions (ex. SetBool(parameter, boolean))
+
+2. I think that the breakdown helped somewhat guide me through a step by step process to creation Animations, but for me
+personally I think I still could have create them without the breakdown. I mostly like to jump straight into making something
+in code before planning it out as that is what works best for me, but the breakdown was not useless and just helped me not get
+lost in what to do next. If I were to do one of these breakdowns again I would improve them by adding even more detail to the steps
+even if it is not needed as I often avoid writing out smaller steps in breakdowns if i believe they are already self-explanatory to me.
+
+3. I bridged visual scripting and code in my game by using a script graph named titleScreen to control the Play and Retry buttons
+in my game. In the scene "MainMenu", I attached it to the Script Machine component of the GameObject named Image under the GameObject
+title screen. Inside the Graph I use the the method OnMouseDown and connected it to the method StartGame() of the C# script MainMenu
+so when the Image GameObject aka the Play button is clicked the scene where the main game is located "SampleScene" is loaded. I reuse this
+same Graph for the Image GameObject under the GameObject Retry Button in SampleScene so when the player loses the game, they can click the retry
+button to reload SampleScene and start the game over again.
+
+4. I would like my use of the Animator system in my game to be graded. As of right now the GameObject Cat has an Animator and Animation that plays 
+when it is on screen and I may add more animations for future scenarios just so the game doesn't look so still and lifeless. You can find the GameObject
+Cat under the hierarchy to find it's Animator component and Animations.
+
 ## Milestone 3 Devlog
 Milestone 3 Devlog goes here.
 ## Milestone 4 Devlog
