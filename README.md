@@ -45,6 +45,10 @@ so when the Image GameObject aka the Play button is clicked the scene where the 
 same Graph for the Image GameObject under the GameObject Retry Button in SampleScene so when the player loses the game, they can click the retry
 button to reload SampleScene and start the game over again.
 
+<img width="1167" height="458" alt="Screenshot 2026-05-14 231301" src="https://github.com/user-attachments/assets/14437d18-bf89-4cb6-acd0-55ce73aefeea" />
+
+<img width="761" height="311" alt="Screenshot 2026-05-14 231336" src="https://github.com/user-attachments/assets/318138a7-4d09-4ad7-813a-47531b083ff9" />
+
 4. I would like my use of the Animator system in my game to be graded. As of right now the GameObject Cat has an Animator and Animation that plays 
 when it is on screen and I may add more animations for future scenarios just so the game doesn't look so still and lifeless. You can find the GameObject
 Cat under the hierarchy to find it's Animator component and Animations.
