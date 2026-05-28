@@ -7,13 +7,10 @@ public class Scenario : MonoBehaviour
 {
     protected KeyCode _requiredKey;
     protected float _timer = 2.0f;
+    [SerializeField] protected AudioSource _soundController;
+    [SerializeField] protected AudioClip _sfx;
     [SerializeField] protected TextMeshPro _timerText;
     [SerializeField] protected GameObject _gameOverUI;
-
-    void Start()
-    {
-
-    }
 
 
     protected virtual void Update()
@@ -32,6 +29,17 @@ public class Scenario : MonoBehaviour
             this.gameObject.SetActive(false);
             _timer = 3.0f;
         }
+    }
+
+    void OnEnable()
+    {
+        _soundController.clip = _sfx;
+        _soundController.Play();
+    }
+
+    void OnDisable()
+    {
+        _soundController.Stop();
     }
 
 }
