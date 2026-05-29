@@ -54,9 +54,27 @@ when it is on screen and I may add more animations for future scenarios just so 
 Cat under the hierarchy to find it's Animator component and Animations.
 
 ## Milestone 3 Devlog
-Milestone 3 Devlog goes here.
-## Milestone 4 Devlog
-Milestone 4 Devlog goes here.
+1. In short, my shader graph changes the color of a 2D texture. How it works is that it used a Sample Texture 2D node to take in
+a Texture2D property. Then the Sample Texture 2D node's RGBA output is connected to one part of a multiply node while a color node
+is connected to the other part of it. Finally, the output of the multiply node is connected to the Fragment node, resulting in me
+being able to change the color of a 2D texture by only changing the color value in the color node. However, I have found no way to
+implement this in my game yet, but I have a few ideas such as making scenario images flash red for a little bit before disappearing
+when the player counters them (like the Minecraft hit effect), or maybe in the future having a scenario the has a rainbow animated 
+effect through finding a way to loop through colors in the color node. You can find the graph applied to the disabled GameObject Cat(1) 
+in the hierarchy (enable it to see the effect). It has no purpose to the game, but it is there to show off the shader graph.
+
+2. Something I did in response to some of my feedback while playtesting was adding background music and unique sound effects
+for each scenario when they appear to make the game feel more alive as opposed to the lack of these features the last time
+we playtested. For example when the scissors scenario appears a scissors sound effect plays. It gives more life to the game
+and provides a more enjoyable experience instead of playing the game in complete silence.
+
+3. I added a new scenario called Thumb (appears a little bit after Popups scenario is introduced) and how it works is that
+randomly either a thumbs up image will appear on screen or a thumbs down image will. If the thumbs up appears then the player
+must press the up arrow to counter it, while if the thumbs down image appears the player must press the down arrow to counter it.
+It adds more chaos and variety to my gameplay loop because it forces the player to utilize even more keys on their keyboard after
+introducing the use of the mouse to click away the popups, keeping them on their toes and more alert on both the mouse and keybord.
+
+
 ## Final Devlog
 Final Devlog goes here.
 ## Open-source assets
