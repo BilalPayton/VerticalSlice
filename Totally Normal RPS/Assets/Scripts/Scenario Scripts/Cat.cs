@@ -19,6 +19,26 @@ public class Cat : Scenario
             this.gameObject.SetActive(false);
             _anim.SetBool("isSilly", false);
             _timer = 3.0f;
+
+            /*if (_gameController.GetRound() == GameController.Round.R1)
+            {
+                _timer = 3.0f;
+            }
+
+            if (_gameController.GetRound() == GameController.Round.R2)
+            {
+                _timer = 2.5f;
+            }
+
+            if (_gameController.GetRound() == GameController.Round.R3)
+            {
+                _timer = 2.0f;
+            }
+
+            if (_gameController.GetRound() == GameController.Round.R4)
+            {
+                _timer = 1.5f;
+            }*/
         }
 
         else { _anim.SetBool("isSilly", true); }

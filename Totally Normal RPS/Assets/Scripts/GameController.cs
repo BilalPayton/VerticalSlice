@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public enum Round
+    {
+        R1,
+        R2,
+        R3,
+        R4
+    }
 
+    private Round _round;
     [SerializeField] private List<GameObject> _scenarioList;
     [SerializeField] private List<GameObject> _scenariosToBeAdded;
     [SerializeField] private List<GameObject> _newScenarioRules;
@@ -22,6 +30,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _timeTillNextScenario = 0.0f;
+        _round = Round.R1;
     }
 
 
@@ -57,6 +66,8 @@ public class GameController : MonoBehaviour
 
             if (_points == 6 && _scenariosToBeAdded.Count != 0)
             {
+                UpdateRound();
+                
                 _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
                 _scenariosToBeAdded.RemoveAt(0);
                 _points = 0;
@@ -78,6 +89,29 @@ public class GameController : MonoBehaviour
         }
 
             Debug.Log(_points);
+    }
+
+    private void UpdateRound()
+    {
+        if (_round == Round.R1)
+        {
+            _round = Round.R2;
+        }
+
+        if (_round == Round.R2)
+        {
+            _round = Round.R3;
+        }
+
+        if (_round == Round.R3)
+        {
+            _round = Round.R4;
+        }
+    }
+
+    public Round GetRound()
+    {
+        return _round;
     }
 
 }
