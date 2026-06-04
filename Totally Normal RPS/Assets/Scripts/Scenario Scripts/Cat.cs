@@ -8,6 +8,7 @@ public class Cat : Scenario
     void Start()
     {
         _requiredKey = KeyCode.F;
+        _timer = 2.5f;
     }
 
     
@@ -18,27 +19,26 @@ public class Cat : Scenario
         {
             this.gameObject.SetActive(false);
             _anim.SetBool("isSilly", false);
-            _timer = 3.0f;
-
-            /*if (_gameController.GetRound() == GameController.Round.R1)
-            {
-                _timer = 3.0f;
-            }
 
             if (_gameController.GetRound() == GameController.Round.R2)
             {
                 _timer = 2.5f;
             }
 
-            if (_gameController.GetRound() == GameController.Round.R3)
+            else if (_gameController.GetRound() == GameController.Round.R3)
             {
                 _timer = 2.0f;
             }
 
-            if (_gameController.GetRound() == GameController.Round.R4)
+            else if (_gameController.GetRound() == GameController.Round.R4)
             {
-                _timer = 1.5f;
-            }*/
+                _timer = 1.7f;
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R5)
+            {
+                _timer = 1.4f;
+            }
         }
 
         else { _anim.SetBool("isSilly", true); }

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Thumb : Scenario
 {
+
+    void Start()
+    {
+        _timer = 1.4f;
+    }
+
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _upSprite;
     [SerializeField] private SpriteRenderer _downSprite;
@@ -31,7 +37,7 @@ public class Thumb : Scenario
         if (Input.GetKeyDown(_requiredKey))
         {
             this.gameObject.SetActive(false);
-            _timer = 3.0f;
+            _timer = 1.4f;
         }
     }
 

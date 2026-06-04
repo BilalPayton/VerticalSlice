@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class STOPHAND : Scenario
 {
-
+    private void Start()
+    {
+        _timer = 2.0f;
+    }
     // Update is called once per frame
     protected override void Update()
     {
@@ -20,7 +23,22 @@ public class STOPHAND : Scenario
         if (_timer <= 0.0f)
         {
             this.gameObject.SetActive(false);
-            _timer = 3.0f;
+
+
+            if (_gameController.GetRound() == GameController.Round.R3)
+            {
+                _timer = 2.0f;
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R4)
+            {
+                _timer = 1.7f;
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R5)
+            {
+                _timer = 1.4f;
+            }
         }
     }
 }

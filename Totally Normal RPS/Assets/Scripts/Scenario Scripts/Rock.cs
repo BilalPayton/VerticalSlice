@@ -8,6 +8,7 @@ public class Rock : Scenario
     void Start()
     {
         _requiredKey = KeyCode.P;
+        _timer = 3.0f;
     }
 
 }

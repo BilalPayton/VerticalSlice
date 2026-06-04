@@ -7,7 +7,7 @@ public class Scenario : MonoBehaviour
 {
 
     protected KeyCode _requiredKey;
-    protected float _timer = 3.0f;
+    protected float _timer;
     [SerializeField] protected AudioSource _soundController;
     [SerializeField] protected AudioClip _sfx;
     [SerializeField] protected TextMeshPro _timerText;
@@ -29,30 +29,31 @@ public class Scenario : MonoBehaviour
         if (Input.GetKeyDown(_requiredKey))
         {
             this.gameObject.SetActive(false);
-            _timer = 3.0f;
-            /*if (_gameController.GetRound() == GameController.Round.R1)
+
+            if (_gameController.GetRound() == GameController.Round.R1)
             {
                 _timer = 3.0f;
-                Debug.Log("Hi 1");
             }
 
             else if (_gameController.GetRound() == GameController.Round.R2)
             {
                 _timer = 2.5f;
-                Debug.Log("Hi 2");
             }
 
             else if (_gameController.GetRound() == GameController.Round.R3)
             {
                 _timer = 2.0f;
-                Debug.Log("Hi 3");
             }
 
             else if (_gameController.GetRound() == GameController.Round.R4)
             {
                 _timer = 1.7f;
-                Debug.Log("Hi 4");
-            }*/
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R5)
+            {
+                _timer = 1.4f;
+            }
 
 
         }

@@ -41,8 +41,17 @@ public class Popups : Scenario
         {
             _popupsDestroyed = 0;
             this.gameObject.SetActive(false);
-            _timer = 5.0f;
             _spawnPopup = true;
+
+            if (_gameController.GetRound() == GameController.Round.R4)
+            {
+                _timer = 5.0f;
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R5)
+            {
+                _timer = 4.0f;
+            }
         }
     }
 

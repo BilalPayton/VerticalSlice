@@ -10,7 +10,8 @@ public class GameController : MonoBehaviour
         R1,
         R2,
         R3,
-        R4
+        R4,
+        R5
     }
 
     private Round _round;
@@ -87,8 +88,6 @@ public class GameController : MonoBehaviour
         {
             _retryButton.SetActive(true);
         }
-
-            Debug.Log(_points);
     }
 
     private void UpdateRound()
@@ -98,12 +97,12 @@ public class GameController : MonoBehaviour
             _round = Round.R2;
         }
 
-        if (_round == Round.R2)
+        else if (_round == Round.R2)
         {
             _round = Round.R3;
         }
 
-        if (_round == Round.R3)
+        else if (_round == Round.R3)
         {
             _round = Round.R4;
         }
@@ -112,6 +111,26 @@ public class GameController : MonoBehaviour
     public Round GetRound()
     {
         return _round;
+    }
+
+    public Round GetR1()
+    {
+        return Round.R1;
+    }
+
+    public Round GetR2()
+    {
+        return Round.R2;
+    }
+
+    public Round GetR3()
+    {
+        return Round.R3;
+    }
+
+    public Round GetR4()
+    {
+        return Round.R4;
     }
 
 }
