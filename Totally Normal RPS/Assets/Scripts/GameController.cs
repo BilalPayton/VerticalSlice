@@ -113,24 +113,4 @@ public class GameController : MonoBehaviour
         return _round;
     }
 
-    public Round GetR1()
-    {
-        return Round.R1;
-    }
-
-    public Round GetR2()
-    {
-        return Round.R2;
-    }
-
-    public Round GetR3()
-    {
-        return Round.R3;
-    }
-
-    public Round GetR4()
-    {
-        return Round.R4;
-    }
-
 }
