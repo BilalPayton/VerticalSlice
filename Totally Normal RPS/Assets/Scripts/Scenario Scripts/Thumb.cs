@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class Thumb : Scenario
@@ -18,28 +19,10 @@ public class Thumb : Scenario
     [SerializeField] private AudioClip _upSound;
     [SerializeField] private AudioClip _downSound;
 
+    [SerializeField] private Material _upRainbow;
+    [SerializeField] private Material _downRainbow;
+
     private int randNum;
-
-    // Start is called before the first frame update
-
-    protected override void Update()
-    {
-
-        _timer -= Time.deltaTime;
-        _timerText.text = "" + _timer;
-
-        if (_timer <= 0.0f || (Input.GetKeyDown(_requiredKey) != true && Input.anyKeyDown))
-        {
-            this.gameObject.SetActive(false);
-            _gameOverUI.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(_requiredKey))
-        {
-            this.gameObject.SetActive(false);
-            _timer = 1.4f;
-        }
-    }
 
     void ChooseThumb()
     {
@@ -50,7 +33,7 @@ public class Thumb : Scenario
             _sfx = _upSound;
             _sprite.sprite = _upSprite.sprite;
             _requiredKey = KeyCode.UpArrow;
-            
+            _rainbowEffect = _upRainbow;
         }
 
         else
@@ -58,6 +41,7 @@ public class Thumb : Scenario
             _sfx = _downSound;
             _sprite.sprite = _downSprite.sprite;
             _requiredKey = KeyCode.DownArrow;
+            _rainbowEffect = _downRainbow;
         }
     }
 

@@ -40,6 +40,7 @@ public class Popups : Scenario
         if (_popupsDestroyed == _numPopups)
         {
             _popupsDestroyed = 0;
+            DisableRainbow();
             this.gameObject.SetActive(false);
             _spawnPopup = true;
 
@@ -51,6 +52,12 @@ public class Popups : Scenario
             else if (_gameController.GetRound() == GameController.Round.R5)
             {
                 _timer = 4.0f;
+            }
+
+            else if (_gameController.GetRound() == GameController.Round.R6)
+            {
+                _timer = 6.0f;
+                SetRainbow();
             }
         }
     }
@@ -73,6 +80,11 @@ public class Popups : Scenario
 
             Instantiate(_popup, spawn, Quaternion.identity);
         }
+    }
+
+    public bool GetRainbow()
+    {
+        return _giveRainbow;
     }
 
 }

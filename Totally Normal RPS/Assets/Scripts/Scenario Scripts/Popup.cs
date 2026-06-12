@@ -7,20 +7,42 @@ public class Popup : MonoBehaviour
 {
     [SerializeField] private Popups popups;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private Material _ogMaterial;
+    [SerializeField] private Material _rainbow;
 
-    // Update is called once per frame
-    void Update()
+    private int _count = 0;
+
+    private void Update()
     {
-        
+        if (popups.GetRainbow() == false)
+        {
+            _renderer.material = _ogMaterial;
+        }
+
+        else
+        {
+            _renderer.material = _rainbow;
+        }
     }
 
     private void OnMouseDown()
     {
-        popups.PopupDestroyed();
-        Destroy(gameObject);
+        if (popups.GetRainbow() == false)
+        {
+            popups.PopupDestroyed();
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            _count++;
+
+            if (_count == 2)
+            {
+                popups.PopupDestroyed();
+                Destroy(gameObject);
+            }
+        }
     }
 }

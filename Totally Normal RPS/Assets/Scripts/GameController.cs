@@ -11,7 +11,8 @@ public class GameController : MonoBehaviour
         R2,
         R3,
         R4,
-        R5
+        R5,
+        R6
     }
 
     private Round _round;
@@ -65,16 +66,31 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            if (_points == 6 && _scenariosToBeAdded.Count != 0)
+            if (_points == 1)
             {
                 UpdateRound();
                 
-                _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
-                _scenariosToBeAdded.RemoveAt(0);
+                if (_scenariosToBeAdded.Count != 0)
+                {
+                    _scenarioList.Add(_scenariosToBeAdded.ElementAt(0));
+                    _scenariosToBeAdded.RemoveAt(0);
+                }
+
                 _points = 0;
-                _timeTillNextScenario = 7.0f;
-                _timeTillNextScenario -= Time.deltaTime;
-                _timerText.SetActive(true);
+
+                if (_scenariosToBeAdded.Count == 0 && _newScenarioRules.Count == 0)
+                {
+                    _timeTillNextScenario = 2.0f;
+                    _timeTillNextScenario -= Time.deltaTime;
+                    _timerText.SetActive(true);
+                }
+
+                else
+                {
+                    _timeTillNextScenario = 7.0f;
+                    _timeTillNextScenario -= Time.deltaTime;
+                    _timerText.SetActive(true);
+                }
 
                 if (_newScenarioRules.Count != 0)
                 {
@@ -105,6 +121,16 @@ public class GameController : MonoBehaviour
         else if (_round == Round.R3)
         {
             _round = Round.R4;
+        }
+
+        else if (_round == Round.R4)
+        {
+            _round = Round.R5;
+        }
+
+        else if (_round == Round.R5)
+        {
+            _round = Round.R6;
         }
     }
 

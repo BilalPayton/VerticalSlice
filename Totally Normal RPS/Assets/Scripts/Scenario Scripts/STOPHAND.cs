@@ -39,6 +39,11 @@ public class STOPHAND : Scenario
             {
                 _timer = 1.4f;
             }
+
+            else if (_gameController.GetRound() == GameController.Round.R6)
+            {
+                _timer = 1.4f;
+            }
         }
     }
 }
