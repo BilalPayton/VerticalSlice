@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            if (_points == 1)
+            if (_points == 6)
             {
                 UpdateRound();
                 

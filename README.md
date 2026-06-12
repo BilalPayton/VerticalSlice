@@ -76,6 +76,28 @@ introducing the use of the mouse to click away the popups, keeping them on their
 
 
 ## Final Devlog
-Final Devlog goes here.
+1. The core gameplay loop of my game Totally Normal RPS is a reaction test style game where the longer the player survives, the more new scenarios are added for the player to keep up with. The gameplay consists of three beginning scenarios of rock paper and scissors and players will need to press the appropiate option to counter them, teaching them the basic mechanics of the game. Then, the game spirals into chaos adding scenarios that don't relate to rock paper scissors at all to add humor and variety.
+
+  Content after original rock paper scissors scenarios:
+  Cat: Counter by pressing F
+  Hand: Don't press anything
+  Popups: Click all of them away with the mouse
+  Thumb: Press Up/Down Arrow depedning if the thumb is Up/Down
+  Rainbow Effect: Any scenarios with this effect requires 2 clicks to counter instead of 1
+
+Players will need to counter all of this situations without pressing the wrong button or running out of time to counter them. This gameplay illustrates that a full game would consist of additional tougher situations as well as possible items or ways to survive in the game longer. It also conveys how an endless mode would definitely be in the game just so players could challenge themselves and see how long they live for.
+
+2. My rendering effect is from a Shader Graph (named Shader Graph) and it creates an animated rainbow effect. It is activated and deactivated through the C# Script Scenario. How this works is that I used the Material containing the effect from the Shader Graph and made duplicates for each scenario image using their respective textures so their texture would have the rainbow effect on upon use. Then, I stored each material in the scenario script's (scenarios inherit from this class) member variable called _rainbowEffect for all scenarios. Next, I created a method that gives a chance for the rainbow effect to be activated on a scenario (1/3 chance) and if it is, I set the Sprite Renderer material of the scenario equal to the material stored in _rainbowEffect. When the scenario is countered, while it is disabled I use a method in Scenario called DisableRainbow() that sets the scenario's Sprite Renderer material back to the sprite default material.
+
+ Where you can find all this:
+ ShaderGraph - Graphs folder
+ Scenario Script - Scripts folder
+ Rainbow Effect Materials - Material Folder
+
+
+
+
+3. How I break down a large project is first determine the systems I need for it such as audio, GameController, Player, etc., then I create a whole bunch of empty scripts that will be used for each respective system for when I eventually come to the part where I need to work on them. For example, if most of the content is complete and next is to add audio, I can go to the Audio script already created at the beginning of the project. It helps me organize and get a decent picture of what I need for the game. The process of breaking down a large project affects my understanding of the scope of the project because I can get an idea if I am within scope or not. If I am within scope or ahead, I can determine whether I should add more content to the game while if I am not within scope, I may have to consider cutting content from the game. The plan I have described relates to my process of creating the Vertical Slice project because I also did the process of identifying and noting down the systems and content I needed such as making a Scenario Script that other classes inherit from to make the process of creating new scenarios easier. Though they weren't added in the project, I did also create ScriptableObjects to represent item data in the beginning of making it. I'd say things went rather smoothly and making notes of what systems are needed to create the game helped in development. As for the bubble diagram break-downs, I may use them in my planning process in the future, but personally I like to jump head first into a new project and just start creating without planning too much. The task step breakdowns not so much because I think it is redundant and usually the tasks being broken down don't take long to actually implement in a game so it seems like a waste of time to me.
+
 ## Open-source assets
 - Cite any external assets used here!
